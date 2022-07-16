@@ -8,11 +8,15 @@ namespace NUnitTesting
 {
     public class NUnit
     {
-        public static double Test(double p, int y, double R)
+        public static void Test(double c)
         {
-            int n = 12 * y;
-            double r = R / 1200;
-            return (p * r / (1 - (Math.Pow((1 + r), -n))));  //payment to be made monthly
+            double t = c;
+            double epsilon = 1e-15;
+            while (Math.Abs(t - c / t) > epsilon * t)
+            {
+                t = (t + (c / t)) / 2;
+            }
+            Console.WriteLine("Square root of " + c + " is " + t);
         }
     }
 }
