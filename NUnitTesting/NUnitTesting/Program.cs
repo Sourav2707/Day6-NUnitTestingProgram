@@ -1,15 +1,9 @@
 ﻿using NUnitTesting;
 Console.WriteLine("Welcome to NUnit Testing program");
-Console.WriteLine("Enter your choice : 1- Celsius to fahrenheit , 2- fahrenheit to Celsius");
-int choice = Convert.ToInt32(Console.ReadLine());
-
-if (choice != 1 && choice != 2)
-{
-    Console.WriteLine("Wrong input");
-}
-else
-{
-    Console.WriteLine("Enter the value you want to convert");
-    double convert = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine($"Converted value is = {NUnit.Test(choice, convert)}");
-}
+Console.WriteLine("Enter the principle amount");
+double P = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Enter for how many years");
+int y = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the rate to be compounded monthly");
+double r = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine($"Payment to be made monthly is = {NUnit.Test(P,y,r)}");
