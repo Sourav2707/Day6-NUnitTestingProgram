@@ -8,15 +8,17 @@ namespace NUnitTesting
 {
     public class NUnit
     {
-        public static void Test(double c)
+        public static void Test(int n)
         {
-            double t = c;
-            double epsilon = 1e-15;
-            while (Math.Abs(t - c / t) > epsilon * t)
+            String bin = "";
+            Console.Write($"Binary of {n} is ");
+            while (n > 0)
             {
-                t = (t + (c / t)) / 2;
+                bin = n % 2 + bin;
+                n = n / 2;
             }
-            Console.WriteLine("Square root of " + c + " is " + t);
+
+            Console.Write(bin);
         }
     }
 }
