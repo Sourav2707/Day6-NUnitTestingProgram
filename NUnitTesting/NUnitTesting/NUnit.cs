@@ -8,28 +8,43 @@ namespace NUnitTesting
 {
     public class NUnit
     {
-        public static void Test(int n)
+        public static void Test()
         {
-            int[] notes = new int[] { 1000, 500, 100, 50, 10, 5, 2, 1 };
-            int[] num = new int[8];
+            Console.WriteLine("Type Any One Date");
+            Console.WriteLine("Enter the day");
+            int d = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the month");
+            int m = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the year");
+            int y = Convert.ToInt32(Console.ReadLine());
 
-
-            for (int i = 0; i < 8; i++)
+            int y0 = y - (14 - m) / 12;
+            int x = y0 + (y0 / 4) - (y0 / 100) + (y0 / 400);
+            int m0 = m + 12 * ((14 - m) / 12) - 2;
+            int d0 = (d + x + (31 * m0) / 12) % 7;
+            switch (d0)
             {
-                if (n >= notes[i])
-                {
-                    num[i] = n / notes[i];
-                    n -= num[i] * notes[i];
-                }
-            }
-
-            Console.WriteLine("Minimum Notes required");
-            for (int i = 0; i < 8; i++)
-            {
-                if (num[i] != 0)
-                {
-                    Console.WriteLine($"{notes[i]} RS note x {num[i]} numbers");
-                }
+                case 0:
+                    Console.WriteLine("Sunday");
+                    break;
+                case 1:
+                    Console.WriteLine("Monday");
+                    break;
+                case 2:
+                    Console.WriteLine("Tuesday");
+                    break;
+                case 3:
+                    Console.WriteLine("Wednesday");
+                    break;
+                case 4:
+                    Console.WriteLine("Thursday");
+                    break;
+                case 5:
+                    Console.WriteLine("Friday");
+                    break;
+                case 6:
+                    Console.WriteLine("Saturday");
+                    break;
             }
         }
     }
